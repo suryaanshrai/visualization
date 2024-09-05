@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title> Upload data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+        }
+        p {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>{{ message }}</p>
+        <p>Please upload relevant file in json format</p>
+        <form method="post" action="{% url 'uploadnewdata' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="newfile">
+            <input type="submit">
+        </form>
+    </div>
+</body>

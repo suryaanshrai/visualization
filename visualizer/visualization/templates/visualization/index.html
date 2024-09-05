@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'visualization/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="panel">
+        <div class="panelAni logoImage">
+            <img src="{% static 'visualization/ani4.gif' %}">
+        </div>
+        <div class="logoImage">
+            <img src="{% static 'visualization/Logo2.png' %}" id="vd">
+        </div>
+        <div class="panelAni logoImage">
+            <img src="{% static 'visualization/ani3.gif' %}">
+        </div>
+    </div>
+
+    <div class="form-group formContainer">
+        <div class="filterFormContainer">
+            <button id="showForm" class="button-89">Filters</button>
+        </div>
+        <form id="filterForm" class="hide">
+            <div class="searchboxcontainer">
+                <div class="searchbox">
+                    <div>
+                        <input type="text" class="form-control" placeholder="Source" id="sourceIn" name="source">
+                    </div>
+                    <div id="searchResults"></div>
+                </div>
+            </div>
+            <div class="searchbox">
+                <input type="text" class="form-control" name="topics" placeholder="Enter comma separated topics">
+            </div>
+            <div>
+                <input type="number" minlength="1800" placeholder="Beginning of endyear" name="end_year_first">
+                <input type="number" minlength="2800" placeholder="Ending of endyear" name="end_year_last">
+            </div>
+            <div class="gridContainer">
+                <div class="gridElement">
+                    <p class="filterTopic">Sectors</p>
+                    {% for sector in sectors %}
+                        <input type="checkbox" class="sectorList" value="{{sector}},">{{sector}}</option>
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="sector" id="formSector" value="">
+                
+                <div class="gridElement">
+                    <p class="filterTopic">Countries</p>
+                    {% for country in countries %}
+                    <input type="checkbox" class="countryList" value="{{country}},">{{country}}</option>
+                    {% endfor %}
+                    <input type="hidden" name="country" id="formCountry" value="">
+                </div>
+                
+                <div class="gridElement">
+                    <p class="filterTopic">Regions</p>
+                    {% for region in regions %}
+                    <input type="checkbox" class="regionList" value="{{region}},">{{region}}</option>
+                    {% endfor %}
+                    <input type="hidden" name="region" id="formRegion" value="">
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="APPLY" class="button-89">
+                <button id="clearForm" class="button-89">CLEAR</button>
+            </div>
+        </form>
+        <div class="outer" id="closeForm" style="margin-top: .5cm">
+            <div class="inner">
+                <label>
+                        close
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="graphsContainer">
+        <div id="sectorGraph" class="graph"></div>
+        <div id="pestleGraph" class="graph"></div>
+        <div id="countryGraph" class="graph"></div>
+        <div id="regionGraph" class="graph"></div>
+        <div id="startYearGraph" class="graph"></div>
+        <div id="endYearGraph" class="graph"></div>
+        <div id="topicGraph" class="graph"></div>
+        <div id="relevanceGraph" class="graph"></div>
+        <div id="likelihoodGraph" class="graph"></div>
+        <div id="intensityGraph" class="graph"></div>
+    </div>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="{% static 'visualization/graphs.js' %}"></script>
+</body>

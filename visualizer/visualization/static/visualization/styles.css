@@ -1,0 +1,255 @@
+body {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.graphsContainer {
+    text-align: center;
+}
+
+.graph {
+    display: inline-block;
+    outline: 1px solid gray;
+    height: 500px;
+    width: 700px;
+    max-width: 95%;
+}
+
+h1 {
+    color: red;
+}
+
+.filterFormContainer {
+    text-align: center;
+}
+
+#closeForm {
+    display: none;
+}
+
+.searchbox {
+    position: relative;
+    text-align: center;
+    width: 10cm;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.searchboxcontainer {
+    text-align: center;
+}
+
+#source {
+    display: inline-block;
+    width: 100%;
+    border-radius: 7px;
+    padding: 2px;
+}
+#searchResults {
+    background-color: white;    
+    border: 1px solid gray;
+    border-radius: 7px;
+    max-width: 95%;
+    position: absolute;
+    text-align: left;
+    z-index: 2;
+}
+#searchResults > p {
+    border-top: 1px solid lightgray;
+    padding: 10px;
+    width:100%;
+}
+
+@media (max-width:800px) {
+    .searchbox {
+        left:0%;
+        max-width:95%
+    }
+    #source {
+        width: 100%;
+    }
+}
+
+.formContainer {
+    padding: 15px;
+    text-align: center;
+}
+
+.filterTopic {
+    font-weight: bold;
+    margin-top: 1cm;
+}
+
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.gridElement {
+    margin-bottom: 1cm;
+}
+
+.filterTable {
+    border:10px solid black;
+}
+
+@media (max-width:800px) {
+    .gridContainer {
+        grid-template-columns: 100%;
+    }
+}
+
+@keyframes slideaway {
+    /* from { display: block; }
+    to { transform: translateY(-40px); opacity: 0;} */
+    0% {
+        opacity: 1;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+  }
+  
+  .hide {
+    animation: slideaway 1s;
+    display: none;
+  }
+
+  .display {
+    animation: slideaway 1s reverse;
+    display: block;
+  }
+
+.panel {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.logoImage {
+    display: inline-block;
+}
+
+.logoImage>img {
+    height: 2cm;
+    width: auto;
+}
+
+#vd {
+    height: 1.5cm;
+}
+
+.panelAni {
+    margin-left:15px;
+    margin-right: 15px;
+}
+
+@media (max-width:800px) {
+    .panelAni{
+        display: none;
+    }
+}
+
+/* CSS */
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .outer {
+    position: relative;
+    margin: auto;
+    width: 50px;
+    margin-top: 200px;
+    cursor: pointer;
+  }
+  
+  .inner {
+    width: inherit;
+    text-align: center;
+  }
+  
+  label { 
+    font-size: .8em; 
+    line-height: 4em;
+    text-transform: uppercase;
+    transition: all .3s ease-in;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .inner:before, .inner:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: inherit;
+    background: red;
+    left: 0;
+    transition: all .3s ease-in;
+  }
+  
+  .inner:before {
+    top: 50%; 
+    transform: rotate(45deg);  
+  }
+  
+  .inner:after {  
+    bottom: 50%;
+    transform: rotate(-45deg);  
+  }
+  
+  .outer:hover label {
+    opacity: 1;
+  }
+  
+  .outer:hover .inner:before,
+  .outer:hover .inner:after {
+    transform: rotate(0);
+  }
+  
+  .outer:hover .inner:before {
+    top: 0;
+  }
+  
+  .outer:hover .inner:after {
+    bottom: 0;
+  }
